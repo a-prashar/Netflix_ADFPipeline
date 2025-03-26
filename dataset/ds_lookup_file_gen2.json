@@ -1,0 +1,37 @@
+{
+	"name": "ds_lookup_file_gen2",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "datalake_input_ls",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "lookup_file.csv",
+				"folderPath": "lookup_folder",
+				"fileSystem": "raw"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "inputfileName",
+				"type": "String"
+			},
+			{
+				"name": "outputFolder",
+				"type": "String"
+			},
+			{
+				"name": "fileName",
+				"type": "String"
+			}
+		]
+	}
+}

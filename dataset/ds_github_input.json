@@ -1,0 +1,30 @@
+{
+	"name": "ds_github_input",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "github_input_http",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"inputfileName": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "HttpServerLocation",
+				"relativeUrl": {
+					"value": "anshlambagit/Netflix_Azure_Data_Engineering_Project/refs/heads/main/RawData_AND_Notebooks/@{dataset().inputfileName}",
+					"type": "Expression"
+				}
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
