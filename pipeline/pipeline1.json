@@ -133,7 +133,7 @@
 							]
 						},
 						{
-							"name": "Set variable1",
+							"name": "Set variable2",
 							"type": "SetVariable",
 							"dependsOn": [
 								{
@@ -149,33 +149,28 @@
 							},
 							"userProperties": [],
 							"typeProperties": {
-								"variableName": "fileName",
+								"variableName": "folder_name",
 								"value": {
-									"value": "@item().fileName",
+									"value": "@item().outputFolder",
 									"type": "Expression"
 								}
 							}
 						},
 						{
-							"name": "Set variable2",
+							"name": "Set variable1",
 							"type": "SetVariable",
-							"dependsOn": [
-								{
-									"activity": "Set variable1",
-									"dependencyConditions": [
-										"Succeeded"
-									]
-								}
-							],
+							"state": "Inactive",
+							"onInactiveMarkAs": "Succeeded",
+							"dependsOn": [],
 							"policy": {
 								"secureOutput": false,
 								"secureInput": false
 							},
 							"userProperties": [],
 							"typeProperties": {
-								"variableName": "folder_name",
+								"variableName": "fileName",
 								"value": {
-									"value": "@item().outputFolder",
+									"value": "@item().fileName",
 									"type": "Expression"
 								}
 							}
@@ -200,8 +195,6 @@
 			{
 				"name": "Notebook1",
 				"type": "DatabricksNotebook",
-				"state": "Inactive",
-				"onInactiveMarkAs": "Succeeded",
 				"dependsOn": [
 					{
 						"activity": "ForEach1",
@@ -219,7 +212,17 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"notebookPath": "/Users/anupamaprashar1925@outlook.com/Netflix Project/2_Silver"
+					"notebookPath": "/Users/anupamaprashar1925@outlook.com/Netflix Project/2_Silver",
+					"baseParameters": {
+						"source_folder": {
+							"value": "@variables('folder_name')",
+							"type": "Expression"
+						},
+						"target_folder": {
+							"value": "@variables('folder_name')",
+							"type": "Expression"
+						}
+					}
 				},
 				"linkedServiceName": {
 					"referenceName": "ls_databricks_notebook",
