@@ -149,7 +149,7 @@
 							},
 							"userProperties": [],
 							"typeProperties": {
-								"variableName": "folder_name",
+								"variableName": "fileName",
 								"value": {
 									"value": "@item().fileName",
 									"type": "Expression"
