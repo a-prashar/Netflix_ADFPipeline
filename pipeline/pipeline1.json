@@ -131,6 +131,54 @@
 									}
 								}
 							]
+						},
+						{
+							"name": "Set variable1",
+							"type": "SetVariable",
+							"dependsOn": [
+								{
+									"activity": "Copy data1",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
+							"policy": {
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"variableName": "folder_name",
+								"value": {
+									"value": "@item().fileName",
+									"type": "Expression"
+								}
+							}
+						},
+						{
+							"name": "Set variable2",
+							"type": "SetVariable",
+							"dependsOn": [
+								{
+									"activity": "Set variable1",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
+							"policy": {
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"variableName": "folder_name",
+								"value": {
+									"value": "@item().outputFolder",
+									"type": "Expression"
+								}
+							}
 						}
 					]
 				}
@@ -179,6 +227,14 @@
 				}
 			}
 		],
+		"variables": {
+			"fileName": {
+				"type": "String"
+			},
+			"folder_name": {
+				"type": "String"
+			}
+		},
 		"annotations": []
 	}
 }
