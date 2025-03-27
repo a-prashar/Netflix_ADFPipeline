@@ -12,7 +12,7 @@
 				"type": "AzureBlobFSLocation",
 				"fileName": "lookup_file.csv",
 				"folderPath": "lookup_folder",
-				"fileSystem": "raw"
+				"fileSystem": "lookup"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",

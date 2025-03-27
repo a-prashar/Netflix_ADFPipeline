@@ -148,6 +148,35 @@
 					"timeout": "0.12:00:00",
 					"sleep": 10
 				}
+			},
+			{
+				"name": "Notebook1",
+				"type": "DatabricksNotebook",
+				"state": "Inactive",
+				"onInactiveMarkAs": "Succeeded",
+				"dependsOn": [
+					{
+						"activity": "ForEach1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Users/anupamaprashar1925@outlook.com/Netflix Project/2_Silver"
+				},
+				"linkedServiceName": {
+					"referenceName": "ls_databricks_notebook",
+					"type": "LinkedServiceReference"
+				}
 			}
 		],
 		"annotations": []
